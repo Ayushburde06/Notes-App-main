@@ -2,11 +2,16 @@
   "name": "notes-app-monolith",
   "version": "1.0.0",
   "scripts": {
-    "install-backend": "cd Backend && npm install",
     "install-frontend": "cd Frontend/notes-app && npm install",
     "build-frontend": "cd Frontend/notes-app && npm run build",
-    "install-all": "npm run install-backend && npm run install-frontend",
-    "render-build": "npm run install-all && npm run build-frontend",
+    "render-build": "npm install && npm run install-frontend && npm run build-frontend",
     "start": "node Backend/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1"
   }
 }
