@@ -45,9 +45,6 @@ app.use(
     })
 )
 
-app.get('/', (req, res) => {
-    res.json({ data: "hello" })
-})
 
 // create account
 app.post("/create-account", async (req, res) => {
