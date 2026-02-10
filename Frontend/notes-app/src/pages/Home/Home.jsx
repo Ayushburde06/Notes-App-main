@@ -12,7 +12,7 @@ import AddNotesImg from "../../assets/images/add-notes.svg";
 import NoData from "../../assets/images/no-data.svg";
 
 const Home = () => {
-    
+
 
     const [openAddEditModal, setOpenAddEditModal] = useState({
         isShown: false,
@@ -130,14 +130,14 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white text-gray-900 transition-colors duration-200">
+        <div className="min-h-screen bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-slate-100 transition-colors duration-300">
             <Navbar
                 userInfo={userInfo}
                 onSearchNote={onSearchNote}
                 handleClearSearch={handleClearSearch}
             />
 
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 pb-20">
                 {allNotes.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                         {allNotes.map((item) => (
@@ -160,14 +160,14 @@ const Home = () => {
                         message={
                             isSearch
                                 ? "Oops! No notes found matching your search."
-                                : 'Start creating your first note! Click the "Add" button to jot down your thoughts, ideas, and reminders. Let\'s get started!'
+                                : 'Start creating your first note! Click the "+" button to jot down your thoughts, ideas, and reminders. Let\'s get started!'
                         }
                     />
                 )}
             </div>
 
             <button
-                className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-primary hover:bg-blue-600 fixed right-4 md:right-10 bottom-4 md:bottom-10 transition-colors duration-200"
+                className="w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-indigo-400 hover:from-primary-hover hover:to-primary fixed right-6 bottom-6 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 hover:scale-105 active:scale-95"
                 onClick={() => {
                     setOpenAddEditModal({
                         isShown: true,
@@ -176,19 +176,21 @@ const Home = () => {
                     });
                 }}
             >
-                <MdAdd className="text-2xl md:text-[32px] text-white" />
+                <MdAdd className="text-[28px] text-white" />
             </button>
 
             <Modal
                 isOpen={openAddEditModal.isShown}
-                onRequestClose={() => {}}
+                onRequestClose={() => { }}
                 style={{
                     overlay: {
-                        backgroundColor: "rgba(0,0,0,0.2)",
+                        backgroundColor: "rgba(0,0,0,0.4)",
+                        backdropFilter: "blur(4px)",
+                        zIndex: 1000,
                     },
                 }}
                 contentLabel=""
-                className="w-[90%] md:w-[60%] lg:w-[40%] max-h-3/4 rounded-md mx-auto mt-14 p-5 overflow-scroll bg-white text-gray-900"
+                className="w-[90%] md:w-[60%] lg:w-[40%] max-h-3/4 rounded-2xl mx-auto mt-14 p-6 overflow-scroll bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 shadow-2xl animate-scale-in"
             >
                 <AddEditNotes
                     type={openAddEditModal.type}

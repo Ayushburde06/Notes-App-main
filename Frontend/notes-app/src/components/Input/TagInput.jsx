@@ -2,28 +2,28 @@ import { useState } from "react"
 import { MdAdd, MdClose } from "react-icons/md"
 
 
-const TagInput = ({tags, setTags}) => {
+const TagInput = ({ tags, setTags }) => {
 
     const [inputValue, setInputValue] = useState("")
 
-    const handleInputChange = (e) =>{
+    const handleInputChange = (e) => {
         setInputValue(e.target.value)
     }
 
-    const addNewTag = () =>{
-        if(inputValue.trim() !== ""){
+    const addNewTag = () => {
+        if (inputValue.trim() !== "") {
             setTags([...tags, inputValue.trim()]);
             setInputValue("");
         }
     }
 
-    const handleKeyDown = (e) =>{
-        if(e.key === "Enter"){
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
             addNewTag();
         }
     }
 
-    const handleRemoveTag = (tagToRemove) =>{
+    const handleRemoveTag = (tagToRemove) => {
         setTags(tags.filter((tag) => tag !== tagToRemove))
     }
 
@@ -31,33 +31,33 @@ const TagInput = ({tags, setTags}) => {
         <div>
             {tags?.length > 0 && (
                 <div className="flex items-center gap-2 flex-wrap mt-2">
-                    {tags.map((tag, index) =>(
-                        <span key={index} className="flex items-center gap-2 text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded">
+                    {tags.map((tag, index) => (
+                        <span key={index} className="flex items-center gap-1.5 text-xs font-medium text-primary dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 px-3 py-1.5 rounded-full transition-colors">
                             #{tag}
-                            <button onClick={() => {}}>
-                                <MdClose/>
+                            <button onClick={() => handleRemoveTag(tag)} className="hover:text-red-500 transition-colors">
+                                <MdClose className="text-sm" />
                             </button>
                         </span>
                     ))}
                 </div>
             )}
 
-            <div className="flex items-center gap-4 mt-3">
-                <input 
+            <div className="flex items-center gap-3 mt-3">
+                <input
                     type="text"
                     value={inputValue}
-                    className="text-sm bg-transparent border px-3 py-2 rounded outline-none"
+                    className="text-sm bg-transparent border border-slate-200 dark:border-slate-600 dark:text-slate-200 px-3 py-2 rounded-lg outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
                     placeholder="Add tags"
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                 />
 
-                <button className="w-8 h-8 flex items-center justify-center rounded border border-blue-700 hover:bg-blue-700"
+                <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-primary hover:bg-primary-hover text-white transition-all duration-200 hover:shadow-md hover:shadow-primary/25 active:scale-95"
                     onClick={() => {
                         addNewTag();
                     }}
                 >
-                    <MdAdd className="text-2xl text-blue-700 hover:text-white "/>
+                    <MdAdd className="text-lg" />
                 </button>
 
             </div>

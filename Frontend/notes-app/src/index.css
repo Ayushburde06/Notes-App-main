@@ -10,27 +10,58 @@
   }
 
   body{
-    background-color: #fdfeff;
+    background-color: #F8FAFC;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body,
+  html.dark body {
+    background-color: #0F172A;
+    color: #F1F5F9;
   }
 }
 
 @layer components{
   
   .input-box{
-    @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none;
+    @apply w-full text-sm bg-transparent border-[1.5px] border-slate-200 px-5 py-3 rounded-lg mb-4 outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20;
+  }
 
+  .dark .input-box{
+    @apply border-slate-600 text-slate-100 placeholder:text-slate-400;
   }
 
   .btn-primary{
-    @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-blue-600;
+    @apply w-full text-sm bg-primary text-white p-3 rounded-lg my-1 font-medium tracking-wide transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98];
+  }
+
+  .dark .btn-primary{
+    @apply bg-indigo-500 hover:bg-indigo-400;
   }
 
   .icon-btn{
-    @apply text-xl text-slate-300 cursor-pointer hover:text-primary;
+    @apply text-xl text-slate-300 cursor-pointer hover:text-primary transition-colors duration-200;
+  }
+
+  .dark .icon-btn{
+    @apply text-slate-500 hover:text-indigo-400;
   }
 
   .input-label{
-    @apply text-xs text-slate-400;
+    @apply text-xs text-slate-400 font-medium uppercase tracking-wider;
+  }
+
+  .dark .input-label{
+    @apply text-slate-500;
+  }
+
+  /* Glassmorphism card */
+  .glass-card{
+    @apply bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-sm;
+  }
+
+  .dark .glass-card{
+    @apply bg-slate-800/80 border-slate-700/60;
   }
 }

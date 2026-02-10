@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  
-  // darkMode: 'selector',
+
+  darkMode: 'class',
 
   content: [
     "./index.html",
@@ -9,11 +9,34 @@ export default {
   ],
   theme: {
     extend: {
-      // colors used in project
       colors: {
-        primary: "#2B85FF",
+        primary: "#6366F1",
+        "primary-hover": "#4F46E5",
+        accent: "#F59E0B",
         secondary: "#EF863E",
-      }
+        surface: "#FFFFFF",
+        "dark-bg": "#0F172A",
+        "dark-surface": "#1E293B",
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-out',
+        'slide-up': 'slideUp 0.4s ease-out',
+        'scale-in': 'scaleIn 0.3s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+      },
     },
   },
   plugins: [],
