@@ -1,0 +1,12 @@
+{
+  "name": "notes-app-monolith",
+  "version": "1.0.0",
+  "scripts": {
+    "install-backend": "cd Backend && npm install",
+    "install-frontend": "cd Frontend/notes-app && npm install",
+    "build-frontend": "cd Frontend/notes-app && npm run build",
+    "install-all": "npm run install-backend && npm run install-frontend",
+    "render-build": "npm run install-all && npm run build-frontend",
+    "start": "cd Backend && npm start"
+  }
+}
