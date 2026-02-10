@@ -60,5 +60,5 @@ A full-stack MERN (MongoDB, Express, React, Node.js) Notes application that allo
 ![Login](https://github.com/Ayushburde06/Notes-App-main/blob/main/img/Screenshot%202026-02-11%20000709.png)
 ![Create Notes](https://github.com/Ayushburde06/Notes-App-main/blob/main/img/Screenshot%202026-02-11%20000741.png)
 ![All Notess](https://github.com/Ayushburde06/Notes-App-main/blob/main/img/Screenshot%202026-02-11%20000815.png)
-![Search and Pinned Notes](https://github.com/Ayushburde06/Notes-App-main/blob/main/Notes%20App%20SS/Sign%20Up.png)
+
 
