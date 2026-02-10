@@ -361,13 +361,16 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
 
 
 // Serve static files from the frontend app
-app.use(express.static(path.join(__dirname, "../Frontend/notes-app/dist")));
+const frontendPath = path.join(__dirname, "../Frontend/notes-app/dist");
+console.log("Serving static files from:", frontendPath);
+app.use(express.static(frontendPath));
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../Frontend/notes-app/dist/index.html"));
+    res.sendFile(path.join(frontendPath, "index.html"));
 });
+
 
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
