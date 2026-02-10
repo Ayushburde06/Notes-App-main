@@ -1,9 +1,11 @@
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, ".env") });
+
 
 const config = require("./config.json")
 const mongoose = require("mongoose")
 
-const path = require("path");
+
 
 const MONGO_URI = process.env.CONNECTION_STRING || config.connectionString;
 
