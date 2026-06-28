@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+Backend/.env
+Frontend/notes-app/.env
+*.log
+.vscode/
+.idea/
+.DS_Store
